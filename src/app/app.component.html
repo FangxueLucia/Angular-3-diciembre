@@ -2,7 +2,10 @@
   <h1>{{ switch() }}</h1>
   @if (switch()) {
   <p>Switch is true</p>
-  <img src="https://i.pinimg.com/736x/58/49/78/584978b34ded21d49ed20b91f9b8ba62.jpg" alt="" />
+  <img
+    src="https://t4.ftcdn.net/jpg/02/71/65/67/360_F_271656742_Rp4Nlngi0tsz7dWsNGMgMGrzJeFnT9uk.jpg"
+    alt=""
+  />
   } @else {
   <p>Switch is false</p>
   <img
@@ -16,9 +19,12 @@
 
 <!-- Buttons to toggle the view signal -->
 <div class="button_container">
+  <button (click)="switch.set(!switch())">Toggle Switch</button>
   <button (click)="view.set('cats')">Show Cats</button>
   <button (click)="view.set('champions')">Show Champions</button>
   <button (click)="view.set('all')">Show All</button>
+  <button (click)="saludar()">Saludar</button>
+  <button (click)="imprimir()">Imprimir</button>
 </div>
 
 <!-- Conditionally render the cats container if view is 'cats' or 'all' -->
@@ -66,3 +72,10 @@
   }
 </div>
 }
+<app-hijo></app-hijo>
+<!-- Muestra el componente hijo -->
+<form (submit)="submitForm($event)">
+  <input name="username" type="text" [(ngModel)]="username" />
+  <input name="password" type="password" [(ngModel)]="password" />
+  <button type="submit">Enviar</button>
+</form>
