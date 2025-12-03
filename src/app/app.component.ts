@@ -8,6 +8,8 @@ import { Component, signal } from '@angular/core';
 })
 export class AppComponent {
 switch = signal(false);
+// Signal to track the current view state ('cats', 'champions', or 'all')
+view = signal('cats');
 arreglo = signal([
   'Paprika',
   'Griffith',

@@ -43,7 +43,8 @@ img:hover {
 /* Containers */
 .switch_container,
 .cats_container,
-.champions_container {
+.champions_container,
+.button_container {
   margin: 2rem auto;
   max-width: 1200px;
   background-color: #ffffff;
@@ -56,6 +57,33 @@ img:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 /* Grid Layout for Cats and Champions */
@@ -103,5 +131,9 @@ img:hover {
   .cats_container,
   .champions_container {
     grid-template-columns: 1fr;
+  }
+  
+  .button_container {
+    flex-direction: column;
   }
 }

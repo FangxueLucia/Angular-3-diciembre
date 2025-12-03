@@ -11,6 +11,18 @@
   />
   }
 </div>
+
+<div></div>
+
+<!-- Buttons to toggle the view signal -->
+<div class="button_container">
+  <button (click)="view.set('cats')">Show Cats</button>
+  <button (click)="view.set('champions')">Show Champions</button>
+  <button (click)="view.set('all')">Show All</button>
+</div>
+
+<!-- Conditionally render the cats container if view is 'cats' or 'all' -->
+@if (view() === 'cats' || view() === 'all') {
 <div class="cats_container">
   <h1>{{ arreglo() }}</h1>
   <!--esto muestra el contenido de "Arreglo"  -->
@@ -35,7 +47,10 @@
     <img src="sirius.jpeg" alt="" />
   </div>
 </div>
+}
 
+<!-- Conditionally render the champions container if view is 'champions' or 'all' -->
+@if (view() === 'champions' || view() === 'all') {
 <div class="champions_container">
   @for (item of objeto(); track $index) {
   <!--recorre el arreglo y muestra el contenido de cada elemento
@@ -50,3 +65,4 @@
   </div>
   }
 </div>
+}
