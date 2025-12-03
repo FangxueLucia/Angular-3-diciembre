@@ -1,13 +1,9 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block; /* Changed from flex to block to let containers handle layout */
   min-height: 100vh;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #f8f9fa;
   color: #212529;
-  text-align: center;
   padding: 2rem;
   box-sizing: border-box;
 }
@@ -18,6 +14,8 @@ h1 {
   color: #343a40;
   margin-bottom: 1.5rem;
   letter-spacing: -0.5px;
+  text-align: center;
+  width: 100%;
 }
 
 p {
@@ -29,8 +27,9 @@ p {
 
 img {
   max-width: 100%;
-  width: 450px;
-  height: auto;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -39,4 +38,70 @@ img {
 img:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Containers */
+.switch_container,
+.cats_container,
+.champions_container {
+  margin: 2rem auto;
+  max-width: 1200px;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.switch_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid Layout for Cats and Champions */
+.cats_container,
+.champions_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Make H1 span full width in grid */
+.cats_container h1,
+.champions_container h1 {
+  grid-column: 1 / -1;
+}
+
+/* Card Styles */
+.paprika,
+.fifi,
+.colette,
+.sirius,
+.champion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.paprika:hover,
+.fifi:hover,
+.colette:hover,
+.sirius:hover,
+.champion:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive: 1 column on smaller screens */
+@media (max-width: 768px) {
+  .cats_container,
+  .champions_container {
+    grid-template-columns: 1fr;
+  }
 }
